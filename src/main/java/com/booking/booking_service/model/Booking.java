@@ -5,16 +5,26 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
+@Table(name = "bookings")
 public class Booking {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private String email;
+
+    @Column(name = "service_type")
     private String serviceType;
+
+    @Column(name = "booking_time")
     private LocalDateTime bookingTime;
+
+    @Column(name = "is_cancelled")
     private boolean isCancelled;
 
     // Constructors
